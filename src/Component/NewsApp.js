@@ -37,26 +37,12 @@ export default function NewsApp() {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  // const dispatch = useDispatch();
-  // const news = useSelector((state) => state.enews.news);
-  // useEffect(() => {
-  //   dispatch(getNews());
-  // }, []);
-  const [news, setnews] = useState([]);
-
+  const dispatch = useDispatch();
+  const news = useSelector((state) => state.enews.news);
   useEffect(() => {
-    axios
-      .get(
-        "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=zwPWSlMYX5hmqNvBIFVFZkpwd1l9KTWQ"
-      )
-      .then((data) => {
-        setnews(data.data.results);
-        console.log(data.data.results);
-      })
-      .catch((err) => {
-        console.log("Error");
-      });
+    dispatch(getNews());
   }, []);
+
   return (
     <div>
       <div style={{ paddingTop: "30px", textAlign: "center" }}>
@@ -64,7 +50,7 @@ export default function NewsApp() {
       </div>
       <Container fixed style={{ paddingTop: "50px" }}>
         {news.length > 0
-          ? news.map((ele, index) => (
+          ? news[0].map((ele, index) => (
               <>
                 <Accordion
                   expanded={expanded === "panel1"}
