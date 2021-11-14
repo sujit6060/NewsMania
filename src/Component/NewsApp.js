@@ -47,11 +47,11 @@ export default function NewsApp() {
   useEffect(() => {
     axios
       .get(
-        "https://newsdata.io/api/1/news?apikey=pub_221503ca4539da6be1beb3178f553d12b8f2&q=battlegrounds"
+        "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=zwPWSlMYX5hmqNvBIFVFZkpwd1l9KTWQ"
       )
       .then((data) => {
-        setnews(data.data);
-        console.log(data.data);
+        setnews(data.data.results);
+        console.log(data.data.results);
       })
       .catch((err) => {
         console.log("Error");
@@ -60,7 +60,7 @@ export default function NewsApp() {
   return (
     <div>
       <div style={{ paddingTop: "30px", textAlign: "center" }}>
-        <h1>NEWS MANIA</h1>
+        <h1>ARTICLES MANIA</h1>
       </div>
       <Container fixed style={{ paddingTop: "50px" }}>
         {news.length > 0
@@ -76,7 +76,10 @@ export default function NewsApp() {
                     id="panel1bh-header"
                   >
                     <ListItemAvatar>
-                      <Avatar alt="Profile Picture" src={ele.urlToImage} />
+                      <Avatar
+                        alt="Profile Picture"
+                        src={ele.multimedia[0].url}
+                      />
                     </ListItemAvatar>
                     <Typography sx={{ width: "100%", flexShrink: 0 }}>
                       {ele.title}
@@ -89,7 +92,7 @@ export default function NewsApp() {
                           <Item>
                             <img
                               style={{ width: "100%", height: "100%" }}
-                              src={ele.urlToImage}
+                              src={ele.multimedia[0].url}
                             />
                           </Item>
                         </Grid>
@@ -101,18 +104,22 @@ export default function NewsApp() {
                             height: "100%",
                           }}
                         >
-                          <Typography>{ele.description}</Typography>
+                          <Typography>{ele.multimedia[0].caption}</Typography>
                           <br></br>
-                          <Typography>Author : {ele.author}</Typography>
+                          <Typography>SubSection : {ele.subsection}</Typography>
                           <br></br>
-                          <Typography>PublishAt : {ele.publishedAt}</Typography>
+                          <Typography>Author : {ele.byline}</Typography>
+                          <br></br>
+                          <Typography>
+                            PublishAt : {ele.published_date}
+                          </Typography>
                           <br></br>
                           <Link
                             href={ele.url}
                             underline="hover"
                             target="_blank"
                           >
-                            Read full news..
+                            Read full article..
                           </Link>
                         </Grid>
                       </Grid>
@@ -130,7 +137,7 @@ export default function NewsApp() {
         >
           <BottomNavigation showLabels>
             <BottomNavigationAction
-              label="Recents News"
+              label="Recents Articles"
               icon={<RestoreIcon />}
             />
           </BottomNavigation>
