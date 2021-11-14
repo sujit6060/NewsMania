@@ -47,10 +47,14 @@ export default function NewsApp() {
   useEffect(() => {
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=in&category=sport&apiKey=e6c6c106a5724f68b06c2398e87bdc2c"
+        "https://newsdata.io/api/1/news?apikey=pub_221503ca4539da6be1beb3178f553d12b8f2&q=battlegrounds"
       )
       .then((data) => {
-        setnews(data.data.articles);
+        setnews(data.data);
+        console.log(data.data);
+      })
+      .catch((err) => {
+        console.log("Error");
       });
   }, []);
   return (
