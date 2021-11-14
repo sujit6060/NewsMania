@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/NewsMania/static/css/main.bab0b925.chunk.css",
-    "main.js": "/NewsMania/static/js/main.5ef12361.chunk.js",
-    "main.js.map": "/NewsMania/static/js/main.5ef12361.chunk.js.map",
+    "main.js": "/NewsMania/static/js/main.fb9dbcb6.chunk.js",
+    "main.js.map": "/NewsMania/static/js/main.fb9dbcb6.chunk.js.map",
     "runtime-main.js": "/NewsMania/static/js/runtime-main.704f6019.js",
     "runtime-main.js.map": "/NewsMania/static/js/runtime-main.704f6019.js.map",
-    "static/js/2.d15e9f99.chunk.js": "/NewsMania/static/js/2.d15e9f99.chunk.js",
-    "static/js/2.d15e9f99.chunk.js.map": "/NewsMania/static/js/2.d15e9f99.chunk.js.map",
+    "static/js/2.b79da30b.chunk.js": "/NewsMania/static/js/2.b79da30b.chunk.js",
+    "static/js/2.b79da30b.chunk.js.map": "/NewsMania/static/js/2.b79da30b.chunk.js.map",
     "static/js/3.118eb1eb.chunk.js": "/NewsMania/static/js/3.118eb1eb.chunk.js",
     "static/js/3.118eb1eb.chunk.js.map": "/NewsMania/static/js/3.118eb1eb.chunk.js.map",
     "index.html": "/NewsMania/index.html",
     "static/css/main.bab0b925.chunk.css.map": "/NewsMania/static/css/main.bab0b925.chunk.css.map",
-    "static/js/2.d15e9f99.chunk.js.LICENSE.txt": "/NewsMania/static/js/2.d15e9f99.chunk.js.LICENSE.txt"
+    "static/js/2.b79da30b.chunk.js.LICENSE.txt": "/NewsMania/static/js/2.b79da30b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.704f6019.js",
-    "static/js/2.d15e9f99.chunk.js",
+    "static/js/2.b79da30b.chunk.js",
     "static/css/main.bab0b925.chunk.css",
-    "static/js/main.5ef12361.chunk.js"
+    "static/js/main.fb9dbcb6.chunk.js"
   ]
 }
