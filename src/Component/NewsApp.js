@@ -23,6 +23,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getNews } from "../thunk";
 import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
+import axios from "axios";
 
 export default function NewsApp() {
   const Item = styled(Paper)(({ theme }) => ({
@@ -36,10 +37,21 @@ export default function NewsApp() {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-  const dispatch = useDispatch();
-  const news = useSelector((state) => state.enews.news);
+  // const dispatch = useDispatch();
+  // const news = useSelector((state) => state.enews.news);
+  // useEffect(() => {
+  //   dispatch(getNews());
+  // }, []);
+  const [news, setnews] = useState([]);
+
   useEffect(() => {
-    dispatch(getNews());
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=in&category=sport&apiKey=e6c6c106a5724f68b06c2398e87bdc2c"
+      )
+      .then((data) => {
+        setnews(data.data.articles);
+      });
   }, []);
   return (
     <div>
@@ -48,7 +60,7 @@ export default function NewsApp() {
       </div>
       <Container fixed style={{ paddingTop: "50px" }}>
         {news.length > 0
-          ? news[0].map((ele, index) => (
+          ? news.map((ele, index) => (
               <>
                 <Accordion
                   expanded={expanded === "panel1"}
